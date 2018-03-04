@@ -82,7 +82,7 @@ class PAnumber():
     def download_day_data(self):   #每天download一次单日数据，并入数据库中作为备份文件。
 
         cnx = create_engine(
-            'mysql+pymysql://collision_dev:collision_dev123@collision.cluster-cycfznhuxf3w.us-east-1.rds.amazonaws.com:3306/PA_Number',
+            'mysql+pymysql://****************************SQL********************************',
             echo=False)
 
         with requests.Session() as session:
@@ -153,7 +153,7 @@ class PAnumber():
 
     def update_PA(self):               #依据过了15天的数据来更新PA number
         cnx = create_engine(
-            'mysql+pymysql://collision_dev:collision_dev123@collision.cluster-cycfznhuxf3w.us-east-1.rds.amazonaws.com:3306/PA_Number',
+            'mysql+pymysql://****************************SQL********************************',
             echo=False)
 
         df = pd.read_sql("SELECT * FROM PA_Number.all_PA_records", con=cnx)
@@ -193,7 +193,7 @@ class PAnumber():
     def search_online(self, invoice):   #用于单个搜索，更新15天还没有拿到PA number的invoice number的状态， 是取消了还是正在等待？
         trip_auth_id = int(str(invoice)[:-1])
         cnx = create_engine(
-            'mysql+pymysql://collision_dev:collision_dev123@collision.cluster-cycfznhuxf3w.us-east-1.rds.amazonaws.com:3306/PA_Number',
+            'mysql+pymysql://****************************SQL********************************',
             echo=False)
 
         df_null = pd.read_sql("SELECT * FROM PA_Number.update_PA_records WHERE PA_Number is null", con=cnx) # get rows where pa number is null
@@ -266,7 +266,7 @@ class PAnumber():
         start_date = today_date - relativedelta(days=15)
 
         cnx = create_engine(
-            'mysql+pymysql://collision_dev:collision_dev123@collision.cluster-cycfznhuxf3w.us-east-1.rds.amazonaws.com:3306/PA_Number',
+            'mysql+pymysql://****************************SQL********************************',
             echo=False)
 
         df = pd.read_sql("SELECT * FROM PA_Number.update_PA_records", con=cnx)
