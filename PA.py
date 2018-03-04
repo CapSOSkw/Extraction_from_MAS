@@ -33,8 +33,8 @@ class PAnumber():
         self.end_date = "03/04/2018"            #用于手动更新
         self.start_date = "03/04/2018"
 
-        self.USERNAME = "kwu662"
-        self.PASSWORD = "Wkyoperr72!"
+        self.USERNAME = "******"
+        self.PASSWORD = "*********"
 
         # start = datetime.strptime(self.start_date, "%m/%d/%Y").strftime("%m_%d_%Y")
         # end = datetime.strptime(self.end_date, "%m/%d/%Y").strftime("%m_%d_%Y")
